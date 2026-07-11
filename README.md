@@ -58,7 +58,7 @@ The task is to move a simulated robot to a goal while accounting for walls, orie
 
 The implementation models the environment as a deterministic weighted shortest-path Markov decision process. It uses an augmented state to remember task progress, an exact cost-aware planner for known maps, and a precomputed feedback table that covers every supplied key, goal, and two-door configuration in the random-map family.
 
-**[Read the full technical report](ece276b_hw1_report.pdf)** - MDP formulation, Bellman optimality equations, all 43 annotated trajectories, and a discussion of limitations. The original [project specification](ECE276_PR1.pdf) is also included.
+📄 **[Read the full technical report](ece276b_hw1_report.pdf)** - MDP formulation, Bellman optimality equations, all 43 annotated trajectories, and a discussion of limitations.
 
 ## What I built
 
