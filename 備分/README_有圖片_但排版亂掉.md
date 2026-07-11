@@ -123,19 +123,14 @@ $$
 For each of the $9$ key/goal configurations, the implementation enumerates:
 
 $$
+\begin{aligned}
 92 \times 4 \times 2 \times 4
-=
-2{,}944
-\quad
-\text{states per configuration}.
-$$
-
-$$
+&= 2{,}944
+&& \text{states per configuration}, \\
 9 \times 2{,}944
-=
-26{,}496
-\quad
-\text{value states across the family}.
+&= 26{,}496
+&& \text{value states across the family}.
+\end{aligned}
 $$
 
 It constructs the reverse transition graph and runs multi-source Dijkstra from all goal states. The resulting table contains $26{,}208$ nonterminal state-action decisions; the other $288$ states are terminal. Evaluation performs no per-file replanning - it rolls out this cached table with a $200$-action guard against unexpected loops.
