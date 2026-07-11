@@ -123,15 +123,9 @@ It constructs the reverse transition graph and runs multi-source Dijkstra from a
 
 ### System pipeline
 
-```text
-Serialized MiniGrid map
-        -> object scan + augmented state
-        -> known map: forward Dijkstra
-           random family: cached reverse-Dijkstra policy
-        -> minimum-cost actions
-        -> MiniGrid replay
-        -> GIF + annotated trajectory figure
-```
+<p align="center">
+  <img src="assets/system_pipeline.svg" alt="Planning pipeline from a serialized MiniGrid map through augmented-state construction, branching into forward Dijkstra for known layouts or a cached reverse-Dijkstra policy for the random family, then producing minimum-cost actions, a MiniGrid replay, a GIF, and an annotated trajectory." width="620"/>
+</p>
 
 ## Results
 
