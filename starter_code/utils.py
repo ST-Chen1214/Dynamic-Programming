@@ -168,7 +168,9 @@ def draw_gif_from_seq(seq, env, path="./gif/doorkey.gif"):
     env:
         The doorkey environment
     """
-    with imageio.get_writer(path, mode="I", duration=0.8) as writer:
+    # ImageIO's Pillow GIF writer expects milliseconds. Loop forever so
+    # generated demos remain animated when embedded on GitHub.
+    with imageio.get_writer(path, mode="I", duration=800, loop=0) as writer:
         img = env.render()
         writer.append_data(img)
         for act in seq:
