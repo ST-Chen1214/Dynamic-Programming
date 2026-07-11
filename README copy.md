@@ -9,10 +9,10 @@ A discrete-state planning system that computes minimum-cost MiniGrid trajectorie
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="docs/partA_doorkey-8x8-normal.gif" width="100%" alt="Cost-optimal trajectory on the 8x8 normal Door-Key map"/>
+      <img src="submitted/gif/partA_doorkey-8x8-normal.gif" width="100%" alt="Cost-optimal trajectory on the 8x8 normal Door-Key map"/>
     </td>
     <td width="50%" align="center">
-      <img src="docs/partA_doorkey-8x8-direct.gif" width="100%" alt="Direct cost-optimal trajectory on the 8x8 Door-Key map"/>
+      <img src="submitted/gif/partA_doorkey-8x8-direct.gif" width="100%" alt="Direct cost-optimal trajectory on the 8x8 Door-Key map"/>
     </td>
   </tr>
   <tr>
@@ -30,10 +30,10 @@ A discrete-state planning system that computes minimum-cost MiniGrid trajectorie
 <table>
   <tr>
     <td width="50%" align="center">
-      <img src="docs/partB_03.gif" width="100%" alt="Unified policy using the open lower door in random environment 3"/>
+      <img src="submitted/gif/partB_03.gif" width="100%" alt="Unified policy using the open lower door in random environment 3"/>
     </td>
     <td width="50%" align="center">
-      <img src="docs/partB_04.gif" width="100%" alt="Unified policy collecting a key and unlocking a door in random environment 4"/>
+      <img src="submitted/gif/partB_04.gif" width="100%" alt="Unified policy collecting a key and unlocking a door in random environment 4"/>
     </td>
   </tr>
   <tr>
