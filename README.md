@@ -74,30 +74,31 @@ The implementation models the environment as a deterministic weighted shortest-p
 
 For a known map, the planner uses
 
-$$
-s = \left(
+```math
+s =
+\left(
 x_{\mathrm{agent}},
 y_{\mathrm{agent}},
 \theta,
-\mathrm{has\_key},
-\mathrm{door\_open\_tuple}
+\texttt{has\_key},
+\texttt{door\_open\_tuple}
 \right).
-$$
+```
 
 For the $10 \times 10$ random-map family, the policy key also includes the configuration variables:
 
-$$
-s = \left(
+```math
+s =
+\left(
 x_{\mathrm{agent}},
 y_{\mathrm{agent}},
 \theta,
-\mathrm{has\_key},
-\mathrm{key\_position},
-\mathrm{goal\_position},
-\mathrm{door\_open\_tuple}
+\texttt{has\_key},
+\texttt{key\_position},
+\texttt{goal\_position},
+\texttt{door\_open\_tuple}
 \right).
-$$
-
+```
 
 
 
