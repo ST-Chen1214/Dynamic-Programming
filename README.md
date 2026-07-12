@@ -94,7 +94,7 @@ The five controls use the non-uniform stage costs defined by the project:
 | `MF` | Move forward one traversable cell | 3 |
 | `UD` | Unlock the door in the front cell | 5 |
 
-The cost-to-go obeys the Bellman relation $V*(s) = min_a [c(a) + V*(f(s, a))]$, with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
+The cost-to-go obeys the Bellman relation $V^*(s) = min_a [c(a) + V^*(f(s, a))]$, with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
 
 ### Known-map planning
 
