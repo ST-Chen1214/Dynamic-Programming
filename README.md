@@ -46,6 +46,27 @@ A discrete-state planning system that computes minimum-cost MiniGrid trajectorie
   </tr>
 </table>
 
+### Buying a shortcut when the cost math favors it
+
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <img src="submitted/gif/partA_doorkey-8x8-shortcut.gif" width="100%" alt="Planner unlocks the adjacent door instead of taking the open detour on the 8x8 shortcut map"/>
+    </td>
+    <td width="50%" align="center">
+      <img src="submitted/gif/partB_36.gif" width="100%" alt="Unified policy handling a third key and goal configuration in random environment 36"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <sub><strong>Unlocking beats the open detour - cost 19, 8 actions.</strong><br/>An open corridor to the goal exists, but picking up the adjacent key (cost 2) and unlocking the neighboring door (cost 5) is cheaper than walking around, so the planner buys the shortcut.</sub>
+    </td>
+    <td align="center">
+      <sub><strong>Different key and goal placement - cost 41, 16 actions.</strong><br/>The same lookup table also covers this third key/goal configuration: it retrieves the far key, unlocks the lower door, and turns up to the goal without any per-map replanning.</sub>
+    </td>
+  </tr>
+</table>
+
 > **Visualization note:** MiniGrid renders only the agent's current view, so black cells are outside the visible region in that frame. The planner itself uses the complete loaded map state; this is a planning system, not a learned perception policy. All repository GIFs loop continuously at the intended 0.8-second frame cadence.
 
 | Verified goal-reaching rollouts | Random-family policy entries | Scenario-specific result sets |
@@ -140,15 +161,35 @@ Across matched key/goal configurations in the random family, the mean optimal co
 <details>
 <summary><strong>Per-map results for the seven known layouts</strong></summary>
 
-| Environment | Cost | Actions |
-|---|---:|---:|
-| `doorkey-5x5-normal` | 28 | 13 |
-| `doorkey-6x6-normal` | 33 | 14 |
-| `doorkey-8x8-normal` | 54 | 21 |
-| `doorkey-6x6-direct` | 13 | 5 |
-| `doorkey-8x8-direct` | 17 | 7 |
-| `doorkey-6x6-shortcut` | 15 | 6 |
-| `doorkey-8x8-shortcut` | 19 | 8 |
+| Environment | Cost | Actions | Optimal action sequence |
+|---|---:|---:|---|
+| `doorkey-5x5-normal` | 28 | 13 | TL TL MF TR PK TR MF TL UD MF MF TR MF |
+| `doorkey-6x6-normal` | 33 | 14 | MF TL MF PK TL TL MF TR MF UD MF MF TR MF |
+| `doorkey-8x8-normal` | 54 | 21 | MF TR MF MF MF MF PK TL TL MF MF MF TR UD MF MF MF TR MF MF MF |
+| `doorkey-6x6-direct` | 13 | 5 | MF MF TR MF MF |
+| `doorkey-8x8-direct` | 17 | 7 | MF TL MF MF MF TL MF |
+| `doorkey-6x6-shortcut` | 15 | 6 | PK TL TL UD MF MF |
+| `doorkey-8x8-shortcut` | 19 | 8 | TR MF TR PK TL UD MF MF |
+
+</details>
+
+<details>
+<summary><strong>Per-map results for all 36 random environments (single policy)</strong></summary>
+
+| Env | Cost | Actions | | Env | Cost | Actions | | Env | Cost | Actions |
+|---|---:|---:|---|---|---:|---:|---|---|---:|---:|
+| 10x10-1 | 29 | 11 | | 10x10-13 | 29 | 11 | | 10x10-25 | 29 | 11 |
+| 10x10-2 | 29 | 11 | | 10x10-14 | 29 | 11 | | 10x10-26 | 29 | 11 |
+| 10x10-3 | 29 | 11 | | 10x10-15 | 29 | 11 | | 10x10-27 | 29 | 11 |
+| 10x10-4 | 50 | 19 | | 10x10-16 | 44 | 17 | | 10x10-28 | 50 | 19 |
+| 10x10-5 | 25 | 9 | | 10x10-17 | 25 | 9 | | 10x10-29 | 25 | 9 |
+| 10x10-6 | 25 | 9 | | 10x10-18 | 25 | 9 | | 10x10-30 | 25 | 9 |
+| 10x10-7 | 26 | 10 | | 10x10-19 | 26 | 10 | | 10x10-31 | 26 | 10 |
+| 10x10-8 | 46 | 17 | | 10x10-20 | 40 | 15 | | 10x10-32 | 46 | 17 |
+| 10x10-9 | 14 | 6 | | 10x10-21 | 14 | 6 | | 10x10-33 | 14 | 6 |
+| 10x10-10 | 32 | 12 | | 10x10-22 | 32 | 12 | | 10x10-34 | 32 | 12 |
+| 10x10-11 | 14 | 6 | | 10x10-23 | 14 | 6 | | 10x10-35 | 14 | 6 |
+| 10x10-12 | 53 | 20 | | 10x10-24 | 47 | 18 | | 10x10-36 | 41 | 16 |
 
 </details>
 
