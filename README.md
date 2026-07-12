@@ -58,9 +58,9 @@ The task is to move a simulated robot to a goal while accounting for walls, orie
 
 The implementation models the environment as a deterministic weighted shortest-path Markov decision process. It uses an augmented state to remember task progress, an exact cost-aware planner for known maps, and a precomputed feedback table that covers every supplied key, goal, and two-door configuration in the random-map family.
 
-**[Read the full technical report](ece276b_hw1_report.pdf)** - MDP formulation, Bellman optimality equations, all 43 annotated trajectories, and a discussion of limitations. The original [project specification](ECE276_PR1.pdf) is also included.
+📄 **[Read the full technical report](/docs/ece276b_hw1_report.pdf)** - MDP formulation, Bellman optimality equations, all 43 annotated trajectories, and a discussion of limitations.
 
-## What I built
+## Key Contribution
 
 - A MiniGrid transition model for turning, collision-aware forward motion, front-cell key pickup, and locked-door interaction.
 - A forward Dijkstra planner that returns a minimum-cost action sequence for each fully known layout.
@@ -72,17 +72,11 @@ The implementation models the environment as a deterministic weighted shortest-p
 
 ### State and objective
 
-For a known map, the planner uses
-
-```text
-(agent_x, agent_y, heading, has_key, door_open_tuple)
+For a known map, the planner uses $$ s = \left( x_{\mathrm{agent}}, y_{\mathrm{agent}}, \theta, \mathrm{has\_key}, \mathrm{door\_open\_tuple} \right). $$ For the \(10 \times 10\) random-map family, the policy key also includes the configuration variables: $$ s = \left( x_{\mathrm{agent}}, y_{\mathrm{agent}}, \theta, \mathrm{has\_key}, \mathrm{key\_position}, \mathrm{goal\_position}, \mathrm{door\_open\_tuple} \right). $$
 ```
 
-For the 10x10 random-map family, the policy key also includes the configuration variables:
 
-```text
-(agent_x, agent_y, heading, has_key, key_position, goal_position, door_open_tuple)
-```
+
 
 This distinction is what makes a single feedback table valid across all 36 files: key position, goal position, and both door states are part of the state on which the action depends.
 
