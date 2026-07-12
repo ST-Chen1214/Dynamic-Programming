@@ -94,8 +94,8 @@ The five controls use the non-uniform stage costs defined by the project:
 | `MF` | Move forward one traversable cell | 3 |
 | `UD` | Unlock the door in the front cell | 5 |
 
-The cost-to-go obeys the Bellman relation $V^*(s) = min_a [c(a) + V^*(f(s, a))]$, with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
 
+The cost-to-go obeys the Bellman relation $V^*(s) = \min_{a}\left[c(a) + V^*\left(f(s,a)\right)\right]$, with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
 ### Known-map planning
 
 The planner scans the loaded grid, records walls, keys, goals, and an arbitrary tuple of door states, and initializes the robot pose from the environment. Forward Dijkstra then expands the five actions from the supplied start state. Parent pointers reconstruct the minimum-cost action sequence as soon as a goal state is settled.
