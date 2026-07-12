@@ -83,26 +83,7 @@ where:
 - $(p_x, p_y) \in \{0, \dots, W-1\} \times \{0, \dots, H-1\}$ is the agent position.
 - $d \in \{0,1,2,3\}$ represents the agent orientation: right, down, left, and up, respectively.
 - $k \in \{0,1\}$ indicates whether the agent is carrying the key.
-- $\mathbf{o} = (o_1, \dots, o_D) \in \{0,1\}^{D}$ is the door-state tuple, where $o_i = 1$ indicates that door $i$ is open and $o_i = 0$ indicates that it is closed.
-
-For the $10 \times 10$ random-map family, the policy key also includes the configuration variables:
-
-```math
-s =
-\left(
-x_{\mathrm{agent}},
-y_{\mathrm{agent}},
-\theta,
-\texttt{has\_key},
-\texttt{key\_position},
-\texttt{goal\_position},
-\texttt{door\_open\_tuple}
-\right).
-```
-
-
-
-This distinction is what makes a single feedback table valid across all 36 files: key position, goal position, and both door states are part of the state on which the action depends.
+- $\mathbf{o} = (o_1, o_2) \in \{0,1\}^{2}$ is the door-state tuple. $o_i = 1$ indicates that door $i$ is open and $o_i = 0$ indicates that it is closed.
 
 The five controls use the non-uniform stage costs defined by the project:
 
