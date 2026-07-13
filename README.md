@@ -48,7 +48,7 @@ V^{*}(x) = \min_{u \in \mathcal{U}} \big[\, \ell(x, u) + V^{*}(f(x, u)) \,\big],
 
 Because turning costs 1 while moving costs 3 and unlocking costs 5, minimizing cost is *not* the same as minimizing steps — the planner must genuinely trade off detours, key pickups, and door unlocks.
 
-## Cost-aware behavior, not shortest paths
+## Cost-aware behavior: minimizing total cost, not step count
 
 The non-uniform cost model produces qualitatively different optimal strategies across map variants — all emerging from the same planner with no hand-coded rules:
 
