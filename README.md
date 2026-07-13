@@ -143,7 +143,7 @@ All 43 environments are solved optimally. Full per-environment costs, step count
 
 </details>
 
-**Qualitative observations** (detailed in the [report](ece276b_hw1_report.pdf)): because turns cost less than forward moves, optimal plans sometimes prefer extra rotations over extra motion; and in shortcut maps the planner correctly determines that key pickup + unlock (cost 7) beats a long open detour — evidence that it optimizes total cost rather than path length.
+**Qualitative observations** (detailed in the [report](assets/ece276b_hw1_report.pdf)): because turns cost less than forward moves, optimal plans sometimes prefer extra rotations over extra motion; and in shortcut maps the planner correctly determines that key pickup + unlock (cost 7) beats a long open detour — evidence that it optimizes total cost rather than path length.
 
 ## Engineering highlights
 
