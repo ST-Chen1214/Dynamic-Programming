@@ -4,8 +4,8 @@
 
 <table>
   <tr>
-    <td align="center"><img src="starter_code/gif/partA_doorkey-8x8-normal.gif" width="300" alt="Known-map 8x8 optimal trajectory"/></td>
-    <td align="center"><img src="starter_code/gif/partB_12.gif" width="300" alt="Single policy solving the hardest random 10x10 map"/></td>
+    <td align="center"><img src="assets/gif/partA_doorkey-8x8-normal.gif" width="300" alt="Known-map 8x8 optimal trajectory"/></td>
+    <td align="center"><img src="assets/gif/partB_12.gif" width="300" alt="Single policy solving the hardest random 10x10 map"/></td>
   </tr>
   <tr>
     <td align="center"><sub><b>Known-map planning (8×8 normal).</b> The planner computes the cost-optimal 21-action sequence: navigate to the key, pick it up, unlock the door, and reach the goal (total cost 54).</sub></td>
@@ -54,8 +54,8 @@ The non-uniform cost model produces qualitatively different optimal strategies a
 
 <table>
   <tr>
-    <td align="center"><img src="starter_code/gif/partA_doorkey-8x8-direct.gif" width="300" alt="Direct variant: planner ignores the key"/></td>
-    <td align="center"><img src="starter_code/gif/partA_doorkey-8x8-shortcut.gif" width="300" alt="Shortcut variant: planner unlocks the door next to the goal"/></td>
+    <td align="center"><img src="assets/gif/partA_doorkey-8x8-direct.gif" width="300" alt="Direct variant: planner ignores the key"/></td>
+    <td align="center"><img src="assets/gif/partA_doorkey-8x8-shortcut.gif" width="300" alt="Shortcut variant: planner unlocks the door next to the goal"/></td>
   </tr>
   <tr>
     <td align="center"><sub><b>8×8 direct:</b> the door is already open, so the planner ignores the key completely and walks straight to the goal — 7 actions with no pickup or unlock (cost 17).</sub></td>
@@ -92,7 +92,7 @@ For each of the 9 (key, goal) configurations, all states are enumerated, the tra
 
 ## Results
 
-All 43 environments are solved optimally. Full per-environment costs, step counts, and action sequences are visualized in [figures](starter_code/figures/) and [GIFs](starter_code/gif/).
+All 43 environments are solved optimally. Full per-environment costs, step counts, and action sequences are visualized in [figures](assets/figures/) and [GIFs](assets/gif/).
 
 **Part A — known maps** (one optimal sequence per map):
 
@@ -114,8 +114,8 @@ All 43 environments are solved optimally. Full per-environment costs, step count
 
 <table>
   <tr>
-    <td align="center"><img src="starter_code/gif/partB_09.gif" width="300" alt="Random map with open doors: direct route"/></td>
-    <td align="center"><img src="starter_code/gif/partB_04.gif" width="300" alt="Random map with locked doors: key retrieval and unlock"/></td>
+    <td align="center"><img src="assets/gif/partB_09.gif" width="300" alt="Random map with open doors: direct route"/></td>
+    <td align="center"><img src="assets/gif/partB_04.gif" width="300" alt="Random map with locked doors: key retrieval and unlock"/></td>
   </tr>
   <tr>
     <td align="center"><sub><b>Easy family member:</b> both doors start open, so the policy drives straight through — 6 actions, cost 14.</sub></td>
