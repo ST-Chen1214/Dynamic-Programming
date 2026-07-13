@@ -152,7 +152,6 @@ All 43 environments are solved optimally. Full per-environment costs, step count
 - **Reverse-graph multi-source Dijkstra** — exact cost-to-go for every state in one pass per configuration, the natural fit for building a state-feedback policy.
 - **Runtime family detection** — loaded environments are fingerprinted (grid size, door positions, key/goal candidates) to automatically dispatch between the two solvers.
 - **Robust environment deserialization** — pickled environment files reference a custom 10×10 environment class registered at import time, making the pipeline runnable from any entry point.
-- **Automated evaluation artifacts** — one command regenerates all trajectory GIFs; a standalone visualization module ([trajectory_visualization.py](starter_code/trajectory_visualization.py)) renders annotated static figures with cost, step count, and the executed action sequence for every environment.
 
 ## Technology stack
 
