@@ -13,7 +13,7 @@
   </tr>
 </table>
 
-**[📄 Read the full technical report](ece276b_hw1_report.pdf)**
+**[📄 Read the full technical report](assets/ece276b_hw1_report.pdf)**
 
 ## Overview
 
