@@ -116,7 +116,14 @@ The five controls use the non-uniform stage costs defined by the project:
 | `UD` | Unlock the door in the front cell | 5 |
 
 
-The cost-to-go obeys the Bellman relation $V^*(s) = \min_{a}\left[c(a) + V^*\left(f(s,a)\right)\right]$, with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
+The cost-to-go obeys the Bellman relation
+
+```math
+V^{*}(s) = \min_{a}\left[c(a) + V^{*}\!\left(f(s,a)\right)\right],
+```
+
+with zero cost at goal states. Because every action cost is positive, the implementation solves this relation exactly with priority-queue shortest-path algorithms rather than synchronous value-iteration sweeps.
+
 ### Known-map planning
 
 The planner scans the loaded grid, records walls, keys, goals, and an arbitrary tuple of door states, and initializes the robot pose from the environment. Forward Dijkstra then expands the five actions from the supplied start state. Parent pointers reconstruct the minimum-cost action sequence as soon as a goal state is settled.
@@ -125,18 +132,20 @@ This formulation captures why the two fixed-map demos above differ: object inter
 
 ### Unified random-family policy
 
-The random family fixes a vertical barrier at `x = 5`, doors at `(5, 3)` and `(5, 7)`, and the start pose at `(4, 8)` facing up. The remaining variables form the complete test family:
+The random family fixes a vertical barrier at $x = 5$, doors at $(5, 3)$ and $(5, 7)$, and the start pose at $(4, 8)$ facing up. The remaining variables form the complete test family:
 
-```text
-3 key positions x 3 goal positions x 4 door-state combinations = 36 maps
+```math
+3~\text{key positions} \times 3~\text{goal positions} \times 4~\text{door-state combinations} = 36~\text{maps}
 ```
 
 For each of the nine key/goal configurations, the implementation enumerates:
 
-```text
-92 traversable cells x 4 headings x 2 key states x 4 door states
-= 2,944 states per configuration
-= 26,496 value states across the family
+```math
+92~\text{traversable cells} \times 4~\text{headings} \times 2~\text{key states} \times 4~\text{door states} = 2{,}944~\text{states per configuration}
+```
+
+```math
+9~\text{configurations} \times 2{,}944 = 26{,}496~\text{value states across the family}
 ```
 
 It constructs the reverse transition graph and runs multi-source Dijkstra from all goal states. The resulting table contains 26,208 nonterminal state-action decisions; the other 288 states are terminal. Evaluation performs no per-file replanning - it rolls out this cached table with a 200-action guard against unexpected loops.
