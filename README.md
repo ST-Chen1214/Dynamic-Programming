@@ -92,7 +92,7 @@ For each of the 9 (key, goal) configurations, all states are enumerated, the tra
 
 ## Results
 
-All 43 environments are solved optimally. Full per-environment costs, step counts, and action sequences are printed by `doorkey.py` and visualized in [figures](starter_code/figures/) and [GIFs](starter_code/gif/).
+All 43 environments are solved optimally. Full per-environment costs, step counts, and action sequences are visualized in [figures](starter_code/figures/) and [GIFs](starter_code/gif/).
 
 **Part A — known maps** (one optimal sequence per map):
 
